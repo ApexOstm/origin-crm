@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Lead {
+  id              String   @id @default(cuid())
+  username        String   @unique
+  followers       Int?
+  engagement      String?
+  totalScore      Int?
+  veredicto       String?
+  flags           String?  // JSON stringificado
+  anguloEntrada   String?
+  rompePatron     String?
+  guionLoom       String?
+  notasLlamada    String?
+  stage           String   @default("Preparado")
+  entryType       String   @default("outbound")
+  competitors     String?  // JSON stringificado
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ContentIdea {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  format      String
+  goal        String?
+  hook        String?
+  fullScript  String?
+  leadId      String?
+  status      String   @default("Idea")
+  createdAt   DateTime @default(now())
+}
