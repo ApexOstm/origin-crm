@@ -3,9 +3,6 @@
 import { useState } from "react"
 import { useContentStore, ContentItem, ContentStatus } from "@/lib/store"
 import { 
-  Plus, 
-  Search, 
-  Filter, 
   Check, 
   X, 
   Play, 
@@ -51,15 +48,15 @@ export default function ContentCalendarPage() {
           </p>
         </div>
         <div className="flex bg-zinc-950 p-1 rounded-2xl border border-zinc-900 shadow-xl">
-           {['All', 'Idea', 'Aprobado', 'Programado'].map((f) => (
-             <button 
-               key={f}
-               onClick={() => setFilter(f as any)}
-               className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${filter === f ? 'bg-white text-zinc-950 shadow-lg' : 'text-zinc-500 hover:text-zinc-300'}`}
-             >
-               {f}
-             </button>
-           ))}
+            {['All', 'Idea', 'Aprobado', 'Programado'].map((f) => (
+              <button 
+                key={f}
+                onClick={() => setFilter(f as ContentStatus | 'All')}
+                className={`px-6 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl transition-all ${filter === f ? 'bg-white text-zinc-950 shadow-lg' : 'text-zinc-500 hover:text-zinc-300'}`}
+              >
+                {f}
+              </button>
+            ))}
         </div>
       </div>
 
@@ -140,11 +137,11 @@ export default function ContentCalendarPage() {
                            </div>
 
                            <div className="space-y-4">
-                              <div className="flex items-center gap-2 text-[10px] font-black text-zinc-500 uppercase tracking-widest">
+                               <div className="flex items-center gap-2 text-[10px] font-black text-zinc-500 uppercase tracking-widest">
                                  <Zap className="h-4 w-4 text-amber-500" /> Gancho (Hook)
                               </div>
                               <p className="text-[13px] text-zinc-300 font-medium italic border-l-2 border-amber-500/20 pl-4 py-1 leading-relaxed">
-                                 "{item.hook || "Pendiente de redacción creativa."}"
+                                 &quot;{item.hook || "Pendiente de redacción creativa."}&quot;
                               </p>
                            </div>
 

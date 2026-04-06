@@ -20,6 +20,8 @@ export function KanbanBoard() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Standard Next.js hydration fix for DragDropContext
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

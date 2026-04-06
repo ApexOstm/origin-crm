@@ -3,10 +3,7 @@
 import { useState } from "react"
 import { 
   Users, 
-  Search, 
-  Target, 
   Zap, 
-  BarChart, 
   Activity, 
   TrendingUp, 
   Clock, 
@@ -133,7 +130,7 @@ export default function CompetitorsPage() {
                  <Zap className="absolute -left-2 -top-2 h-6 w-6 text-emerald-500/20" />
                  <p className="text-[10px] text-zinc-500 uppercase font-black tracking-widest mb-2 italic">Diferencial Origin:</p>
                  <p className="text-[11px] text-zinc-300 leading-relaxed font-medium italic">
-                    "{rival.advantage}"
+                    &quot;{rival.advantage}&quot;
                  </p>
               </div>
            </div>

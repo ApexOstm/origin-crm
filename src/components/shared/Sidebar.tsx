@@ -16,20 +16,10 @@ import {
 import { cn } from "@/lib/utils"
 
 const navigation = [
-  { group: 'Operativa', items: [
-    { name: 'Dashboard', href: '/pipeline', icon: LayoutDashboard },
+  { group: 'Origin System', items: [
+    { name: 'Prospección (VLAD)', href: '/instagram', icon: Smartphone },
     { name: 'Cierre (Pipeline)', href: '/pipeline', icon: Activity },
-    { name: 'Prospección', href: '/instagram', icon: Smartphone },
-  ]},
-  { group: 'Contenidos', items: [
-    { name: 'Contrato (Studio)', href: '/calendar', icon: Zap },
-    { name: 'Calendario', href: '/calendar', icon: LayoutDashboard },
-    { name: 'Reels & Stories', href: '/reels', icon: Smartphone },
-  ]},
-  { group: 'Inteligencia', items: [
-    { name: 'Salud (Analytics)', href: '/analytics', icon: Activity },
     { name: 'VLAD Rivals', href: '/competitors', icon: Shield },
-    { name: 'Noticias Globales', href: '/news', icon: Zap },
   ]},
 ]
 

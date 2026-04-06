@@ -1,7 +1,7 @@
 "use client"
 
 import { useNewsStore } from "@/lib/newsStore"
-import { Newspaper, Sparkles, BookOpen, TrendingUp, Radio, Cpu, Rocket, Globe, Zap } from "lucide-react"
+import { Sparkles, BookOpen, TrendingUp, Radio, Cpu, Rocket, Globe, Zap } from "lucide-react"
 
 export default function NewsPage() {
   const { news, aiSummary } = useNewsStore()
@@ -78,7 +78,7 @@ export default function NewsPage() {
                 </h3>
                 
                 <div className="p-6 bg-black/40 border border-zinc-900/50 rounded-2xl mb-8 group-hover:border-emerald-500/10 transition-all">
-                  <p className="text-sm text-zinc-400 leading-relaxed italic">"{item.summary}"</p>
+                  <p className="text-sm text-zinc-400 leading-relaxed italic">&quot;{item.summary}&quot;</p>
                 </div>
 
                 <div className="flex items-center justify-between pt-6 border-t border-zinc-900">
@@ -124,14 +124,14 @@ export default function NewsPage() {
                     <BookOpen className="h-4 w-4 text-emerald-500 shrink-0" />
                     <div className="flex flex-col gap-1">
                        <p className="text-[11px] text-zinc-300 font-black uppercase tracking-tight">Estrategia Q2</p>
-                       <p className="text-[10px] text-zinc-500 italic">Menos volumen, más profundidad en el "Angle Detection".</p>
+                       <p className="text-[10px] text-zinc-500 italic">Menos volumen, más profundidad en el &quot;Angle Detection&quot;.</p>
                     </div>
                   </div>
                   <div className="flex gap-4 p-4 bg-zinc-900/40 rounded-2xl border border-zinc-800/50 hover:bg-zinc-800/20 transition-all">
                     <BookOpen className="h-4 w-4 text-emerald-500 shrink-0" />
                     <div className="flex flex-col gap-1">
                        <p className="text-[11px] text-zinc-300 font-black uppercase tracking-tight">Acción Inmediata</p>
-                       <p className="text-[10px] text-zinc-500 italic">Inyecta la "Grieta B2B de LinkedIn" en tus Looms de hoy.</p>
+                       <p className="text-[10px] text-zinc-500 italic">Inyecta la &quot;Grieta B2B de LinkedIn&quot; en tus Looms de hoy.</p>
                     </div>
                   </div>
                 </div>

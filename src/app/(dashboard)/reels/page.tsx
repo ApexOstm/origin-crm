@@ -1,6 +1,6 @@
 "use client"
 
-import { PlaySquare, Zap, Target, Sparkles, MessageSquare, ArrowRight, Video } from "lucide-react"
+import { PlaySquare, Zap, Sparkles, Video } from "lucide-react"
 
 export default function ReelsLabPage() {
   const frameworks = [
@@ -54,7 +54,7 @@ export default function ReelsLabPage() {
                  <div className="space-y-6">
                     <div className="space-y-2">
                        <p className="text-[9px] font-black text-zinc-600 uppercase tracking-widest">Gancho (Hook)</p>
-                       <p className="text-sm font-bold text-zinc-200 italic leading-snug">"{f.hook}"</p>
+                       <p className="text-sm font-bold text-zinc-200 italic leading-snug">&quot;{f.hook}&quot;</p>
                     </div>
                     
                     <div className="space-y-2">

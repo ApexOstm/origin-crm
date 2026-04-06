@@ -63,9 +63,9 @@ TIPO DE ENTRADA ACTUAL: ${entryType?.toUpperCase() || 'OUTBOUND'}
 
 TU RESPUESTA DEBE SER UN JSON ESTRICTO:
 {
-  "username": "${username}",
-  "followers": "${(profileData as any).followersCount}",
-  "engagement": "estimado %",
+   "username": "${username}",
+   "followers": "${(profileData as Record<string, any>).followersCount}",
+   "engagement": "estimado %",
   "totalScore": 0,
   "veredicto": "Verde|Amarillo|Rojo",
   "temperature": "frio|tibio|caliente",
@@ -91,7 +91,7 @@ TU RESPUESTA DEBE SER UN JSON ESTRICTO:
 }
 `;
 
-        const postsToAnalyze = (profileData as any).latestPosts ? (profileData as any).latestPosts.slice(0, 5).map((p: any) => ({
+        const postsToAnalyze = (profileData as Record<string, any>).latestPosts ? (profileData as Record<string, any>).latestPosts.slice(0, 5).map((p: Record<string, any>) => ({
             caption: p.caption,
             likesCount: p.likesCount,
             commentsCount: p.commentsCount,
@@ -111,7 +111,7 @@ ${JSON.stringify({
 }, null, 2)}
 `;
 
-        const message = await (anthropic as any).messages.create({
+        const message = await anthropic.messages.create({
             model: "claude-3-5-sonnet-20241022",
             max_tokens: 4096,
             temperature: 0.2,
@@ -145,10 +145,11 @@ ${JSON.stringify({
             throw new Error("La IA no devolvió un JSON válido.");
         }
 
-    } catch (error: any) {
+    } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         console.error('Error in analyze route:', error);
         return NextResponse.json(
-            { error: 'Error del backend: ' + error.message },
+            { error: 'Error del backend: ' + errorMessage },
             { status: 500 }
         );
     }

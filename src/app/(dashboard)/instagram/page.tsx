@@ -1,15 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Search, Loader2, CheckCircle, AlertTriangle, Target, Star as Sparkles, Activity, Link as LinkIcon, Video as Youtube, Briefcase as Linkedin, Map as Globe, Bolt as Zap, Save, Plus, Terminal, MessageCircle } from "lucide-react"
-import { usePipelineStore, useContentStore, EntryType } from "@/lib/store"
+import { useState } from "react"
+import { Search, Loader2, CheckCircle, AlertTriangle, Target, Star as Sparkles, Activity, Video as Youtube, Briefcase as Linkedin, Map as Globe, Bolt as Zap, Save, Terminal, MessageCircle } from "lucide-react"
+import { usePipelineStore, useContentStore } from "@/lib/store"
 import { useUserStore } from "@/lib/userStore"
 
 export default function InstagramManagerPage() {
   const [username, setUsername] = useState("")
   const [isAnalyzing, setIsAnalyzing] = useState(false)
-  const [entryType, setEntryType] = useState<EntryType>("outbound")
-  const [result, setResult] = useState<null | any>(null)
+  const [entryType, setEntryType] = useState<'inbound' | 'outbound'>("outbound")
+  const [result, setResult] = useState<null | Record<string, any>>(null)
   const [statusLog, setStatusLog] = useState<string[]>([])
   
   const addLead = usePipelineStore((state) => state.addLead)
@@ -74,10 +74,8 @@ export default function InstagramManagerPage() {
     return "text-rose-400"
   }
 
-  const getVeredictoColor = (veredicto: string) => {
-    if (veredicto === "Verde") return "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shadow-[0_0_15px_rgba(16,185,129,0.1)]"
-    if (veredicto === "Amarillo") return "bg-amber-500/10 text-amber-400 border-amber-500/20 shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-    return "bg-rose-500/10 text-rose-400 border-rose-500/20 shadow-[0_0_15px_rgba(244,63,94,0.1)]"
+  const getPercentage = (count: number) => {
+    return (count / 100) * 100
   }
 
   return (
@@ -203,13 +201,13 @@ export default function InstagramManagerPage() {
                </div>
                <div className="flex flex-col items-center justify-center border-r border-zinc-800/30 last:border-0 relative">
                  <span className="text-lg text-rose-400/80 font-medium lining-nums">
-                    {(result.rawProfile?.latestPosts?.[0]?.likesCount ? `${(result.rawProfile.latestPosts.reduce((a:any,b:any)=>a+b.likesCount,0)/result.rawProfile.latestPosts.length / 1000).toFixed(1)}K` : '---')}
+                    {(result.rawProfile?.latestPosts?.[0]?.likesCount ? `${(result.rawProfile.latestPosts.reduce((a: number, b: { likesCount: number }) => a + b.likesCount, 0) / result.rawProfile.latestPosts.length / 1000).toFixed(1)}K` : '---')}
                  </span>
                  <span className="text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Likes promedio</span>
                </div>
                <div className="flex flex-col items-center justify-center border-r border-zinc-800/30 last:border-0 relative">
                  <span className="text-lg text-blue-400/80 font-medium lining-nums">
-                    {(result.rawProfile?.latestPosts?.[0]?.commentsCount ? Math.floor(result.rawProfile.latestPosts.reduce((a:any,b:any)=>a+b.commentsCount,0)/result.rawProfile.latestPosts.length) : '---')}
+                    {(result.rawProfile?.latestPosts?.[0]?.commentsCount ? Math.floor(result.rawProfile.latestPosts.reduce((a: number, b: { commentsCount: number }) => a + b.commentsCount, 0) / result.rawProfile.latestPosts.length) : '---')}
                  </span>
                  <span className="text-[9px] text-zinc-500 uppercase tracking-widest mt-1">Comentarios prom.</span>
                </div>
@@ -227,7 +225,7 @@ export default function InstagramManagerPage() {
                    <span className="text-[10px] font-medium text-zinc-400 uppercase tracking-widest">Actividad Reciente</span>
                  </div>
                  <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                   {result.rawProfile.latestPosts.slice(0, 5).map((post: any, i: number) => (
+                   {result.rawProfile.latestPosts.slice(0, 5).map((post: { type?: string, caption?: string, likesCount: number, commentsCount: number }, i: number) => (
                      <div key={i} className="bg-black/30 border border-zinc-800/50 rounded-xl p-4 flex flex-col h-48 hover:border-zinc-700 transition-colors group">
                        <span className="text-[8px] text-emerald-500/70 border border-emerald-500/20 px-2 py-0.5 rounded-full inline-flex self-start uppercase tracking-widest mb-auto">
                          {post.type || 'REEL'}
@@ -357,7 +355,7 @@ export default function InstagramManagerPage() {
                     <CheckCircle className="h-4 w-4 text-emerald-500" /> Winning Content Analysis
                   </h4>
                   <div className="space-y-8">
-                     {result.winningPosts && result.winningPosts.map((post: any, i: number) => (
+                     {result.winningPosts && result.winningPosts.map((post: { title: string, metrics: string, why: string }, i: number) => (
                         <div key={i} className="flex gap-6 p-6 bg-zinc-900/40 border border-zinc-800 rounded-2xl hover:border-emerald-500/30 transition-all group">
                            <div className="h-10 w-10 bg-zinc-800 rounded-full flex items-center justify-center text-emerald-500 shrink-0 font-black italic shadow-inner">
                               {i+1}
@@ -387,7 +385,7 @@ export default function InstagramManagerPage() {
                   </h4>
                   
                   <div className="space-y-6">
-                    {result.contentIdeas && result.contentIdeas.map((idea: any, i: number) => (
+                    {result.contentIdeas && result.contentIdeas.map((idea: { format: string, title: string, description: string, goal: string, hook: string, script: string }, i: number) => (
                       <div key={i} className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-black/40 border border-zinc-900 rounded-[2rem] hover:border-emerald-500/30 transition-all group">
                          <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
@@ -413,7 +411,7 @@ export default function InstagramManagerPage() {
                                goal: idea.goal,
                                hook: idea.hook,
                                fullScript: idea.script
-                             });
+                             } as any);
                              alert('Idea enviada al Banco de Ideas para aprobación.');
                            }}
                            className="h-14 w-14 rounded-2xl bg-zinc-900 hover:bg-emerald-500 text-zinc-500 hover:text-zinc-950 flex items-center justify-center transition-all group-hover:scale-110 shadow-xl"
@@ -438,7 +436,7 @@ export default function InstagramManagerPage() {
                      🎯 Grieta Detectada
                   </h4>
                   <p className="text-lg text-emerald-500 font-bold leading-relaxed italic border-l-2 border-emerald-500/50 pl-6 py-2">
-                    "{result.anguloEntrada}"
+                    &quot;{result.anguloEntrada}&quot;
                   </p>
                </div>
 

@@ -124,7 +124,7 @@ export function LeadScriptPanel() {
                      🎯 Grieta Estratégica Dominante
                   </h4>
                   <p className="text-lg text-emerald-500 font-bold leading-relaxed italic border-l-2 border-emerald-500/50 pl-6 py-2">
-                    "{selectedLead.anguloEntrada || 'Análisis no disponible'}"
+                    &quot;{selectedLead.anguloEntrada || 'Análisis no disponible'}&quot;
                   </p>
                </section>
 
@@ -167,7 +167,7 @@ export function LeadScriptPanel() {
                     <Layout className="h-4 w-4 text-emerald-400" /> Auditoría Técnica
                   </h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
-                    {selectedLead.scorecard && Object.entries(selectedLead.scorecard).map(([key, data]: [string, any]) => (
+                    {selectedLead.scorecard && Object.entries(selectedLead.scorecard).map(([key, data]: [string, { score: number, nota: string }]) => (
                       <div key={key} className="flex flex-col group">
                         <div className="flex justify-between items-center mb-1 border-b border-zinc-900 pb-1">
                           <span className="text-[9px] text-zinc-500 font-bold uppercase tracking-tighter">

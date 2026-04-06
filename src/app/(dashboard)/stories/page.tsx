@@ -74,10 +74,10 @@ export default function StoriesLabPage() {
             </div>
             <p className="text-[13px] text-zinc-400 leading-relaxed italic mb-8">
                No uses encuestas por usar. Cada interacción debe validar una hipótesis sobre el lead. 
-               <span className="text-emerald-500 font-bold px-1">Tip Origin:</span> Si votan "No", escríbeles igual; han interactuado con tu autoridad.
+               <span className="text-emerald-500 font-bold px-1">Tip Origin:</span> Si votan &quot;No&quot;, escríbeles igual; han interactuado con tu autoridad.
             </p>
             <div className="p-8 bg-zinc-900/40 rounded-[2.5rem] border border-zinc-900 shadow-inner italic text-xs text-zinc-600">
-               "Usa el Sticker de Reacción para medir temperatura, el de Encuesta para segmentar intereses."
+               &quot;Usa el Sticker de Reacción para medir temperatura, el de Encuesta para segmentar intereses.&quot;
             </div>
          </div>
 

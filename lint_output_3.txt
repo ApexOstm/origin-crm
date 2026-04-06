@@ -1,0 +1,87 @@
+
+> origin-crm@0.1.0 lint
+> eslint
+
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/calendar/page.tsx
+    4:27  warning  'ContentItem' is defined but never used                          @typescript-eslint/no-unused-vars
+    6:3   warning  'Plus' is defined but never used                                 @typescript-eslint/no-unused-vars
+    7:3   warning  'Search' is defined but never used                               @typescript-eslint/no-unused-vars
+    8:3   warning  'Filter' is defined but never used                               @typescript-eslint/no-unused-vars
+   57:46  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  147:34  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  147:84  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/competitors/page.tsx
+    6:3   warning  'Search' is defined but never used                               @typescript-eslint/no-unused-vars
+    7:3   warning  'Target' is defined but never used                               @typescript-eslint/no-unused-vars
+    9:3   warning  'BarChart' is defined but never used                             @typescript-eslint/no-unused-vars
+  136:21  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  136:39  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/instagram/page.tsx
+   12:62  error    Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+   62:21  error    Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+   77:9   warning  'getPercentage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  332:82  error    Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+  414:35  error    Unexpected any. Specify a different type            @typescript-eslint/no-explicit-any
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/news/page.tsx
+    4:10   warning  'Newspaper' is defined but never used                            @typescript-eslint/no-unused-vars
+   81:79   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+   81:94   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  134:83   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  134:106  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/reels/page.tsx
+   3:27   warning  'Target' is defined but never used                               @typescript-eslint/no-unused-vars
+   3:45   warning  'MessageSquare' is defined but never used                        @typescript-eslint/no-unused-vars
+   3:60   warning  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+  57:91   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  57:100  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/settings/page.tsx
+    5:30  warning  'Target' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+    5:43  warning  'Sparkles' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+  123:36  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  123:36  warning  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images                                                                                                                                                                                jsx-a11y/alt-text
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/stories/page.tsx
+   3:19   warning  'Target' is defined but never used                               @typescript-eslint/no-unused-vars
+   3:27   warning  'Zap' is defined but never used                                  @typescript-eslint/no-unused-vars
+   3:49   warning  'MessageSquare' is defined but never used                        @typescript-eslint/no-unused-vars
+   3:64   warning  'BookOpen' is defined but never used                             @typescript-eslint/no-unused-vars
+  77:94   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  77:97   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  80:16   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  80:108  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/(dashboard)/utms/page.tsx
+    4:31   warning  'Trash2' is defined but never used                               @typescript-eslint/no-unused-vars
+   11:16   warning  'setTerm' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+   12:19   warning  'setContent' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+  154:19   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  154:61   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  154:104  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  154:111  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/app/api/analyze/route.ts
+   67:51   error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:63   error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:114  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+   94:167  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  143:18   warning  'e' is defined but never used             @typescript-eslint/no-unused-vars
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/components/features/KanbanBoard.tsx
+  5:39  warning  'Lead' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/components/features/LeadScriptPanel.tsx
+  3:39  warning  'Temperature' is defined but never used  @typescript-eslint/no-unused-vars
+  3:52  warning  'EntryType' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/luciaolmoss.09gmail.com/.gemini/antigravity/scratch/origin-crm/src/components/shared/Sidebar.tsx
+  10:3  warning  'Target' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  warning  'User' is defined but never used    @typescript-eslint/no-unused-vars
+
+✖ 56 problems (27 errors, 29 warnings)
+

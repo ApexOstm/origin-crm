@@ -176,7 +176,7 @@ export default function AnalyticsPage() {
             <div className="mt-12 p-6 bg-zinc-900/30 rounded-3xl border border-zinc-800 text-center relative overflow-hidden group">
                <Sparkles className="absolute -left-2 -top-2 h-8 w-8 text-emerald-500 opacity-10 group-hover:opacity-20 transition-opacity" />
                <p className="text-[11px] text-zinc-400 italic leading-relaxed font-medium">
-                 "El balance actual sugiere que el {getPercentage(veredictoCounts.verde).toFixed(0)}% de tu prospección es de alta calidad. Enfócate en convertir estos activos primero."
+                 &quot;El balance actual sugiere que el {getPercentage(veredictoCounts.verde).toFixed(0)}% de tu prospección es de alta calidad. Enfócate en convertir estos activos primero.&quot;
                </p>
             </div>
           </div>

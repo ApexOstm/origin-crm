@@ -99,7 +99,7 @@ interface PipelineStore {
   addLead: (lead: Omit<Lead, 'id' | 'status' | 'temperature'>) => void;
   updateLeadStatus: (id: string, newStatus: LeadState) => void;
   updateLeadScripts: (id: string, field: 'rompePatron'|'guionLoom'|'notasLlamada', value: string) => void;
-  updateLeadClosing: (id: string, field: 'propuestaLink' | 'contratoFirmado' | 'pagoValidado' | 'montoCierre', value: any) => void;
+  updateLeadClosing: (id: string, field: 'propuestaLink' | 'contratoFirmado' | 'pagoValidado' | 'montoCierre', value: string | number | boolean) => void;
   selectLead: (id: string | null) => void;
 }
 

@@ -151,7 +151,7 @@ export default function UtmStudioPage() {
                   Origin <span className="text-emerald-500">Traceability</span>
                </h3>
                <p className="text-sm font-medium text-zinc-400 italic leading-relaxed mb-8">
-                  "Si no puedes medirlo, no puedes escalarlo". Usa UTMs diferentes para cada ángulo de "Grieta" detectado.
+                  &quot;Si no puedes medirlo, no puedes escalarlo&quot;. Usa UTMs diferentes para cada ángulo de &quot;Grieta&quot; detectado.
                </p>
                <div className="space-y-6">
                   <div className="flex items-center gap-4 group/tip">
