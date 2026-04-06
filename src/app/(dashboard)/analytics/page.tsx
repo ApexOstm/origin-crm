@@ -13,11 +13,11 @@ export default function AnalyticsPage() {
 
   const statusCounts = {
     preparado: leads.filter(l => l.status === 'preparado').length,
-    silencioso: leads.filter(l => l.status === 'silencioso').length,
-    contactado: leads.filter(l => l.status === 'contactado').length,
-    loom: leads.filter(l => l.status === 'loom').length,
-    llamada: leads.filter(l => l.status === 'llamada').length,
-    propuesta: leads.filter(l => l.status === 'propuesta').length,
+    silencioso: leads.filter(l => ['en_espera', 'ghosting'].includes(l.status)).length,
+    contactado: leads.filter(l => l.status === 'mensaje_enviado').length,
+    loom: leads.filter(l => ['apto_loom', 'loom_enviado', 'espera_loom'].includes(l.status)).length,
+    llamada: leads.filter(l => ['listo_llamada', 'calendly_enviado', 'agendada', 'realizada'].includes(l.status)).length,
+    propuesta: leads.filter(l => ['cierre', 'seguimiento'].includes(l.status)).length,
     cerrado: leads.filter(l => l.status === 'cerrado').length,
   }
 

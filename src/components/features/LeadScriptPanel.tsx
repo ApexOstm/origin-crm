@@ -357,10 +357,15 @@ export function LeadScriptPanel() {
                  )}
                  {selectedLead.pagoValidado && selectedLead.status === 'cierre' && (
                     <button 
-                      onClick={() => updateLeadStatus(selectedLead.id, 'cerrado')}
-                      className="px-8 py-3 bg-white text-zinc-950 rounded-2xl font-medium uppercase text-[10px] tracking-widest shadow-lg animate-pulse"
+                      onClick={() => {
+                        updateLeadStatus(selectedLead.id, 'cerrado');
+                      }}
+                      className="group/btn relative px-10 py-4 bg-white text-zinc-950 rounded-2xl font-black uppercase text-[11px] tracking-[0.2em] shadow-[0_20px_50px_rgba(255,255,255,0.1)] hover:scale-105 active:scale-95 transition-all overflow-hidden"
                     >
-                      FINALIZAR VENTA ✔
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/10 to-emerald-500/0 translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000" />
+                      <span className="relative z-10 flex items-center gap-3">
+                         Finalizar Operación <CheckCircle2 className="h-4 w-4" />
+                      </span>
                     </button>
                  )}
               </div>
