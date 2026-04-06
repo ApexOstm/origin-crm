@@ -56,7 +56,7 @@ export default function InstagramManagerPage() {
 
       const data = await response.json()
       clearInterval(logInterval)
-      setStatusLog(["¡Análisis VLAD 4.1 Completado!", "Datos estratégicos listos."])
+      setStatusLog(["¡Análisis VLAD 5.1 Completado!", "Datos estratégicos listos."])
       setTimeout(() => setStatusLog([]), 2000)
       setResult(data)
     } catch (error: any) {
@@ -112,7 +112,7 @@ export default function InstagramManagerPage() {
              </button>
              <button 
                onClick={() => setEntryType('inbound')}
-               className={`flex-1 py-3 px-6 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] border transition-all ${entryType === 'inbound' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-transparent text-zinc-500 border-zinc-800 hover:border-zinc-700'}`}
+               className={`flex-1 py-3 px-6 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] border transition-all ${entryType === 'inbound' ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-transparent text-zinc-500 border-zinc-800 hover:border-zinc-700'}`}
              >
                 Inbound
              </button>
@@ -143,7 +143,7 @@ export default function InstagramManagerPage() {
             <div className="mt-8 bg-black/60 border border-zinc-900 rounded-3xl p-8 font-mono shadow-2xl animate-in zoom-in-95 duration-500">
                <div className="flex items-center gap-3 mb-6 border-b border-zinc-900 pb-4">
                   <Terminal className="h-4 w-4 text-emerald-500" />
-                  <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Origin Terminal v4.1 - Fast Extraction</span>
+                  <span className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Origin Terminal v5.1 - Fast Extraction</span>
                </div>
                <div className="space-y-3">
                   {statusLog.map((log, i) => (
