@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 export type LeadState = 
   | 'preparado' 
@@ -80,18 +81,23 @@ interface ContentStore {
   deleteItem: (id: string) => void;
 }
 
-export const useContentStore = create<ContentStore>()((set) => ({
-  items: [],
-  addItem: (item) => set((state) => ({ 
-    items: [...state.items, { ...item, id: Math.random().toString(36).substring(7) }] 
-  })),
-  updateStatus: (id, status) => set((state) => ({
-    items: state.items.map((item) => item.id === id ? { ...item, status } : item)
-  })),
-  deleteItem: (id) => set((state) => ({
-    items: state.items.filter((item) => item.id !== id)
-  })),
-}));
+export const useContentStore = create<ContentStore>()(
+  persist(
+    (set) => ({
+      items: [],
+      addItem: (item) => set((state) => ({ 
+        items: [...state.items, { ...item, id: Math.random().toString(36).substring(7) }] 
+      })),
+      updateStatus: (id, status) => set((state) => ({
+        items: state.items.map((item) => item.id === id ? { ...item, status } : item)
+      })),
+      deleteItem: (id) => set((state) => ({
+        items: state.items.filter((item) => item.id !== id)
+      })),
+    }),
+    { name: 'origin-content-storage' }
+  )
+);
 
 interface PipelineStore {
   leads: Lead[];
@@ -103,55 +109,43 @@ interface PipelineStore {
   selectLead: (id: string | null) => void;
 }
 
-export const usePipelineStore = create<PipelineStore>((set) => ({
-  leads: [
-    { 
-        id: '1', 
-        username: 'juanignaciom', 
-        followers: '10K', 
-        totalScore: 42,
-        veredicto: 'Verde',
-        status: 'preparado', 
-        temperature: 'tibio',
-        entryType: 'outbound',
-        anguloEntrada: 'Validar su flujo de leads actual y proponer automatización.', 
-        rompePatron: 'Buen ángulo estructural.',
-        guionLoom: '1. Hook: La rentabilidad se fuga...',
-        notasLlamada: '- Si dice que no tiene tiempo...'
-    },
-    { id: '2', username: 'carlos_mentor', followers: '45K', totalScore: 45, veredicto: 'Verde', status: 'preparado', temperature: 'frio', entryType: 'outbound' },
-    { id: '3', username: 'isabel.coach', followers: '200K', totalScore: 39, veredicto: 'Amarillo', status: 'respondio', temperature: 'caliente', entryType: 'inbound' },
-  ],
-  selectedLeadId: null,
-  selectLead: (id) => set({ selectedLeadId: id }),
-  updateLeadScripts: (id, field, value) =>
-    set((state) => ({
-      leads: state.leads.map((lead) =>
-        lead.id === id ? { ...lead, [field]: value } : lead
-      ),
-    })),
-  addLead: (leadInfo) =>
-    set((state) => ({
-      leads: [
-        ...state.leads,
-        {
-          ...leadInfo,
-          id: Math.random().toString(36).substring(7),
-          status: 'preparado',
-          temperature: 'frio',
-        },
-      ],
-    })),
-  updateLeadStatus: (id, newStatus) =>
-    set((state) => ({
-      leads: state.leads.map((lead) =>
-        lead.id === id ? { ...lead, status: newStatus } : lead
-      ),
-    })),
-  updateLeadClosing: (id, field, value) =>
-    set((state) => ({
-      leads: state.leads.map((lead) =>
-        lead.id === id ? { ...lead, [field]: value } : lead
-      ),
-    })),
-}));
+export const usePipelineStore = create<PipelineStore>()(
+  persist(
+    (set) => ({
+      leads: [],
+      selectedLeadId: null,
+      selectLead: (id) => set({ selectedLeadId: id }),
+      updateLeadScripts: (id, field, value) =>
+        set((state) => ({
+          leads: state.leads.map((lead) =>
+            lead.id === id ? { ...lead, [field]: value } : lead
+          ),
+        })),
+      addLead: (leadInfo) =>
+        set((state) => ({
+          leads: [
+            ...state.leads,
+            {
+              ...leadInfo,
+              id: Math.random().toString(36).substring(7),
+              status: 'preparado',
+              temperature: 'frio',
+            },
+          ],
+        })),
+      updateLeadStatus: (id, newStatus) =>
+        set((state) => ({
+          leads: state.leads.map((lead) =>
+            lead.id === id ? { ...lead, status: newStatus } : lead
+          ),
+        })),
+      updateLeadClosing: (id, field, value) =>
+        set((state) => ({
+          leads: state.leads.map((lead) =>
+            lead.id === id ? { ...lead, [field]: value } : lead
+          ),
+        })),
+    }),
+    { name: 'origin-pipeline-storage' }
+  )
+);
